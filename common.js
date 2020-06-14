@@ -1,7 +1,7 @@
 ﻿$(function() {
-    $(".menu>a").click(function(e) {
-        $(".menu>a.selected").removeClass();
-        $(".content").load($(this).addClass("selected").attr("href"));
-        e.preventDefault();
-    }).first().click();
+    $(".menu").load("Menu.html", function() {
+        var url = location.href;
+        var href = url.substr(url.lastIndexOf("/") + 1);
+        $("a[href='" + (href || "index.html") + "']").addClass("selected");
+    });
 });
